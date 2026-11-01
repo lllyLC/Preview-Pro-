@@ -1,0 +1,37 @@
+{
+  "name": "preview-pro",
+  "productName": "Preview Pro",
+  "version": "1.0.0",
+  "description": "Multi-PDF viewer with tabs, markup, redaction and version history",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --mac --arm64"
+  },
+  "dependencies": {
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "4.10.38"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "local.previewpro",
+    "mac": {
+      "target": "dir",
+      "identity": null,
+      "category": "public.app-category.productivity",
+      "extendInfo": {
+        "CFBundleDocumentTypes": [
+          {
+            "CFBundleTypeName": "PDF",
+            "CFBundleTypeRole": "Viewer",
+            "LSItemContentTypes": ["com.adobe.pdf"]
+          }
+        ]
+      }
+    },
+    "files": ["main.js", "preload.js", "src/**", "node_modules/**"]
+  }
+}

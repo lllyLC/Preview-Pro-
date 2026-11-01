@@ -1,0 +1,21 @@
+directories:
+  output: dist
+  buildResources: build
+appId: local.previewpro
+mac:
+  target: dir
+  identity: null
+  category: public.app-category.productivity
+  extendInfo:
+    CFBundleDocumentTypes:
+      - CFBundleTypeName: PDF
+        CFBundleTypeRole: Viewer
+        LSItemContentTypes:
+          - com.adobe.pdf
+files:
+  - filter:
+      - main.js
+      - preload.js
+      - src/**
+      - node_modules/**
+electronVersion: 38.8.6
